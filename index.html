@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+VDE - Visor de Estado
+</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+body{
+    background:#111827;
+    color:white;
+    padding:20px;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:32px;
+}
+
+#actualizado{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    border-radius:12px;
+    padding:20px;
+    min-height:420px;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+.ok{
+    background:#166534;
+}
+
+.sleep{
+    background:#1d4ed8;
+}
+
+.warning{
+    background:#b45309;
+}
+
+.error{
+    background:#991b1b;
+}
+
+.cabecera-modulo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.info-linea{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+    font-size:13px;
+}
+
+.badge{
+    display:inline-block;
+    padding:6px 12px;
+    margin-bottom:15px;
+    border-radius:20px;
+    background:rgba(255,255,255,.2);
+}
+
+.alertas{
+    margin-bottom:15px;
+}
+
+.alertas ul{
+    margin-left:20px;
+}
+
+.stats{
+    margin-bottom:15px;
+    padding:10px;
+    border-radius:8px;
+    background:rgba(255,255,255,.12);
+}
+
+.stats div{
+    margin-bottom:6px;
+}
+
+.barra{
+    width:100%;
+    height:12px;
+    border-radius:10px;
+    overflow:hidden;
+    background:rgba(255,255,255,.2);
+}
+
+.barra-interna{
+    height:100%;
+    background:white;
+}
+
+.consumible{
+    margin-bottom:15px;
+}
+
+.titulo-consumible{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:4px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>
+VDE - Visor de Estado
+</h1>
+
+<div id="actualizado">
+Actualizado: 2026-09-24 11:59:04
+</div>
+
+</header>
+
+<div class="grid">
+
+    <div class="card ok">
+
+        <div class="cabecera-modulo">
+
+            <h2>MODULO 1</h2>
+
+            <div class="uti">
+                UTI 11:50 24/09
+            </div>
+
+        </div>
+
+        <div class="info-linea">
+
+            <span>B7025</span>
+
+            <span>172.16.79.124</span>
+
+            <span>
+                1.148.579
+                /
+                195
+            </span>
+
+        </div>
+
+        <div class="badge">
+            OK
+        </div>
+
+        <div class="alertas">
+            Sin alertas activas
+        </div>
+
+        <div class="stats">
+
+            <div>
+                📄 Hoy:
+                <strong>0</strong>
+                |
+                <strong>
+                    122
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📄 Ayer:
+                <strong>5</strong>
+                |
+                <strong>
+                    2.323
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📦 Mes:
+                <strong>
+                    23
+                </strong>
+                resmas
+            </div>
+
+            <div>
+                🕒 Última carga:
+                <strong>
+                    17:09 23/09
+                </strong>
+            </div>
+
+        </div>
+
+        <div class="consumibles">
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Tóner</span>
+                    <span>
+                        40%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:40%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Drum</span>
+                    <span>
+                        15%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:15%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="card ok">
+
+        <div class="cabecera-modulo">
+
+            <h2>MODULO 2</h2>
+
+            <div class="uti">
+                UTI 11:59 24/09
+            </div>
+
+        </div>
+
+        <div class="info-linea">
+
+            <span>B7030</span>
+
+            <span>172.16.79.82</span>
+
+            <span>
+                415.843
+                /
+                1.236
+            </span>
+
+        </div>
+
+        <div class="badge">
+            OK
+        </div>
+
+        <div class="alertas">
+            <ul><li>Bandeja 1 con poco papel</li></ul>
+        </div>
+
+        <div class="stats">
+
+            <div>
+                📄 Hoy:
+                <strong>1</strong>
+                |
+                <strong>
+                    932
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📄 Ayer:
+                <strong>11</strong>
+                |
+                <strong>
+                    5.234
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📦 Mes:
+                <strong>
+                    64
+                </strong>
+                resmas
+            </div>
+
+            <div>
+                🕒 Última carga:
+                <strong>
+                    10:41 24/09
+                </strong>
+            </div>
+
+        </div>
+
+        <div class="consumibles">
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Tóner</span>
+                    <span>
+                        99%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:99%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Drum</span>
+                    <span>
+                        100%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:100%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="card warning">
+
+        <div class="cabecera-modulo">
+
+            <h2>MODULO 3</h2>
+
+            <div class="uti">
+                UTI 11:59 24/09
+            </div>
+
+        </div>
+
+        <div class="info-linea">
+
+            <span>B605</span>
+
+            <span>172.16.79.86</span>
+
+            <span>
+                195.331
+                /
+                1.663
+            </span>
+
+        </div>
+
+        <div class="badge">
+            WARNING
+        </div>
+
+        <div class="alertas">
+            <ul><li>Bandeja 1 sin papel</li></ul>
+        </div>
+
+        <div class="stats">
+
+            <div>
+                📄 Hoy:
+                <strong>1</strong>
+                |
+                <strong>
+                    1.105
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📄 Ayer:
+                <strong>6</strong>
+                |
+                <strong>
+                    3.729
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📦 Mes:
+                <strong>
+                    44
+                </strong>
+                resmas
+            </div>
+
+            <div>
+                🕒 Última carga:
+                <strong>
+                    11:24 24/09
+                </strong>
+            </div>
+
+        </div>
+
+        <div class="consumibles">
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Tóner</span>
+                    <span>
+                        47%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:47%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Drum</span>
+                    <span>
+                        27%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:27%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="card sleep">
+
+        <div class="cabecera-modulo">
+
+            <h2>MODULO 4</h2>
+
+            <div class="uti">
+                UTI N/D
+            </div>
+
+        </div>
+
+        <div class="info-linea">
+
+            <span>B400</span>
+
+            <span>172.16.81.64</span>
+
+            <span>
+                383.446
+                /
+                0
+            </span>
+
+        </div>
+
+        <div class="badge">
+            SLEEP
+        </div>
+
+        <div class="alertas">
+            <ul><li>Impresora en suspensión</li></ul>
+        </div>
+
+        <div class="stats">
+
+            <div>
+                📄 Hoy:
+                <strong>0</strong>
+                |
+                <strong>
+                    0
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📄 Ayer:
+                <strong>0</strong>
+                |
+                <strong>
+                    0
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📦 Mes:
+                <strong>
+                    0
+                </strong>
+                resmas
+            </div>
+
+            <div>
+                🕒 Última carga:
+                <strong>
+                    Sin registros
+                </strong>
+            </div>
+
+        </div>
+
+        <div class="consumibles">
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Tóner</span>
+                    <span>
+                        46%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:46%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Drum</span>
+                    <span>
+                        88%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:88%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="card error">
+
+        <div class="cabecera-modulo">
+
+            <h2>MODULO 5</h2>
+
+            <div class="uti">
+                UTI 11:59 24/09
+            </div>
+
+        </div>
+
+        <div class="info-linea">
+
+            <span>B605</span>
+
+            <span>172.16.79.199</span>
+
+            <span>
+                958.040
+                /
+                1.441
+            </span>
+
+        </div>
+
+        <div class="badge">
+            ERROR
+        </div>
+
+        <div class="alertas">
+            <ul><li>Tóner negro próximo a reemplazo</li><li>Bandeja 1 ausente</li></ul>
+        </div>
+
+        <div class="stats">
+
+            <div>
+                📄 Hoy:
+                <strong>1</strong>
+                |
+                <strong>
+                    990
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📄 Ayer:
+                <strong>8</strong>
+                |
+                <strong>
+                    2.857
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📦 Mes:
+                <strong>
+                    53
+                </strong>
+                resmas
+            </div>
+
+            <div>
+                🕒 Última carga:
+                <strong>
+                    11:59 24/09
+                </strong>
+            </div>
+
+        </div>
+
+        <div class="consumibles">
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Tóner</span>
+                    <span>
+                        11%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:11%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Drum</span>
+                    <span>
+                        62%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:62%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="card warning">
+
+        <div class="cabecera-modulo">
+
+            <h2>MODULO 6</h2>
+
+            <div class="uti">
+                UTI 11:59 24/09
+            </div>
+
+        </div>
+
+        <div class="info-linea">
+
+            <span>B600</span>
+
+            <span>172.16.79.200</span>
+
+            <span>
+                1.133.252
+                /
+                1.727
+            </span>
+
+        </div>
+
+        <div class="badge">
+            WARNING
+        </div>
+
+        <div class="alertas">
+            <ul><li>Bandeja 1 sin papel</li></ul>
+        </div>
+
+        <div class="stats">
+
+            <div>
+                📄 Hoy:
+                <strong>2</strong>
+                |
+                <strong>
+                    1.477
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📄 Ayer:
+                <strong>7</strong>
+                |
+                <strong>
+                    5.162
+                </strong>
+                hojas
+            </div>
+
+            <div>
+                📦 Mes:
+                <strong>
+                    73
+                </strong>
+                resmas
+            </div>
+
+            <div>
+                🕒 Última carga:
+                <strong>
+                    10:47 24/09
+                </strong>
+            </div>
+
+        </div>
+
+        <div class="consumibles">
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Tóner</span>
+                    <span>
+                        48%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:48%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="consumible">
+
+                <div class="titulo-consumible">
+                    <span>Drum</span>
+                    <span>
+                        77%
+                    </span>
+                </div>
+
+                <div class="barra">
+                    <div
+                        class="barra-interna"
+                        style="
+                            width:77%;
+                        ">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>
+
+</body>
+</html>
